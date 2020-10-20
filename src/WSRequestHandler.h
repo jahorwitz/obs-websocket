@@ -152,6 +152,8 @@ class WSRequestHandler {
 		RpcResponse SetStreamSettings(const RpcRequest&);
 		RpcResponse GetStreamSettings(const RpcRequest&);
 		RpcResponse SaveStreamSettings(const RpcRequest&);
+		RpcResponse SetBitrate(const RpcRequest&);
+		RpcResponse GetBitrate(const RpcRequest&);
 #if BUILD_CAPTIONS
 		RpcResponse SendCaptions(const RpcRequest&);
 #endif
