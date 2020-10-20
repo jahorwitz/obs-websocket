@@ -135,6 +135,8 @@ const QHash<QString, RpcMethodHandler> WSRequestHandler::messageMap {
 	{ "SetStreamSettings", &WSRequestHandler::SetStreamSettings },
 	{ "GetStreamSettings", &WSRequestHandler::GetStreamSettings },
 	{ "SaveStreamSettings", &WSRequestHandler::SaveStreamSettings },
+	{ "SetBitrate", &WSRequestHandler::SetBitrate },
+	{ "GetBitrate", &WSRequestHandler::GetBitrate },
 #if BUILD_CAPTIONS
 	{ "SendCaptions", &WSRequestHandler::SendCaptions },
 #endif

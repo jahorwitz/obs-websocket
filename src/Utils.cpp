@@ -549,6 +549,29 @@ bool Utils::SetRecordingFolder(const char* path) {
 	return true;
 }
 
+const char* Utils::GetBitrate() {
+	config_t* profile = obs_frontend_get_profile_config();
+	QString outputMode = config_get_string(profile, "Output", "Mode");
+
+	if (outputMode == "Advanced") {
+		// Advanced mode
+		return config_get_string(profile, "AdvOut", "FFVBitrate");
+	} else {
+		// Simple mode
+		return config_get_string(profile, "SimpleOutput", "VBitrate");
+	}
+}
+
+bool Utils::SetBitrate(const char* bitrate) {
+	config_t* profile = obs_frontend_get_profile_config();
+
+	config_set_string(profile, "AdvOut", "FFVBitrate", bitrate);
+	config_set_string(profile, "SimpleOutput", "VBitrate", bitrate);
+
+	config_save(profile);
+	return true;
+}
+
 QString Utils::ParseDataToQueryString(obs_data_t* data) {
 	if (!data)
 		return QString();

@@ -289,6 +289,50 @@ RpcResponse WSRequestHandler::SaveStreamSettings(const RpcRequest& request) {
 	return request.success();
 }
 
+/**
+ * In the current profile, sets the bitrate of the Simple and Advanced
+ * output modes to the specified value.
+ * 
+ * @param {String} `bitrate` Path of the recording folder.
+ *
+ * @api requests
+ * @name SetBitrate
+ * @category streaming
+ * @since 4.8.0
+ */
+RpcResponse WSRequestHandler::SetBitrate(const RpcRequest& request) {
+	if (!request.hasField("bitrate")) {
+		return request.failed("missing request parameters");
+	}
+
+	const char* bitrate = obs_data_get_string(request.parameters(), "bitrate");
+	bool success = Utils::SetBitrate(bitrate);
+	if (!success) {
+		return request.failed("invalid request parameters");
+	}
+
+	return request.success();
+}
+
+/**
+ * Get the path of  the current recording folder.
+ *
+ * @return {String} `bitrate` Current bitrate setting.
+ *
+ * @api requests
+ * @name GetBitrate
+ * @category streaming
+ * @since 4.8.0
+ */
+RpcResponse WSRequestHandler::GetBitrate(const RpcRequest& request) {
+	const char* bitrate = Utils::GetBitrate();
+
+	OBSDataAutoRelease response = obs_data_create();
+	obs_data_set_string(response, "bitrate", bitrate);
+
+	return request.success(response);
+}
+
 
 /**
  * Send the provided text as embedded CEA-608 caption data.
