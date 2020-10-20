@@ -9920,6 +9920,88 @@
       },
       {
         "subheads": [],
+        "description": "In the current profile, sets the bitrate of the Simple and Advanced\noutput modes to the specified value.",
+        "param": "{String} `bitrate` Path of the recording folder.",
+        "api": "requests",
+        "name": "SetBitrate",
+        "category": "streaming",
+        "since": "4.8.0",
+        "params": [
+          {
+            "type": "String",
+            "name": "bitrate",
+            "description": "Path of the recording folder."
+          }
+        ],
+        "names": [
+          {
+            "name": "",
+            "description": "SetBitrate"
+          }
+        ],
+        "categories": [
+          {
+            "name": "",
+            "description": "streaming"
+          }
+        ],
+        "sinces": [
+          {
+            "name": "",
+            "description": "4.8.0"
+          }
+        ],
+        "heading": {
+          "level": 2,
+          "text": "SetBitrate"
+        },
+        "lead": "",
+        "type": "class",
+        "examples": []
+      },
+      {
+        "subheads": [],
+        "description": "Get the path of  the current recording folder.",
+        "return": "{String} `bitrate` Current bitrate setting.",
+        "api": "requests",
+        "name": "GetBitrate",
+        "category": "streaming",
+        "since": "4.8.0",
+        "returns": [
+          {
+            "type": "String",
+            "name": "bitrate",
+            "description": "Current bitrate setting."
+          }
+        ],
+        "names": [
+          {
+            "name": "",
+            "description": "GetBitrate"
+          }
+        ],
+        "categories": [
+          {
+            "name": "",
+            "description": "streaming"
+          }
+        ],
+        "sinces": [
+          {
+            "name": "",
+            "description": "4.8.0"
+          }
+        ],
+        "heading": {
+          "level": 2,
+          "text": "GetBitrate"
+        },
+        "lead": "",
+        "type": "class",
+        "examples": []
+      },
+      {
+        "subheads": [],
         "description": "Send the provided text as embedded CEA-608 caption data.",
         "param": "{String} `text` Captions text",
         "api": "requests",

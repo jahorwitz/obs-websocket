@@ -239,6 +239,8 @@ You can also refer to any of the client libraries listed on the [README](README.
     + [SetStreamSettings](#setstreamsettings)
     + [GetStreamSettings](#getstreamsettings)
     + [SaveStreamSettings](#savestreamsettings)
+    + [SetBitrate](#setbitrate)
+    + [GetBitrate](#getbitrate)
     + [SendCaptions](#sendcaptions)
   * [Studio Mode](#studio-mode-1)
     + [GetStudioModeStatus](#getstudiomodestatus)
@@ -3897,6 +3899,47 @@ _No specified parameters._
 **Response Items:**
 
 _No additional response items._
+
+---
+
+### SetBitrate
+
+
+- Added in v4.8.0
+
+In the current profile, sets the bitrate of the Simple and Advanced
+output modes to the specified value.
+
+**Request Fields:**
+
+| Name | Type  | Description |
+| ---- | :---: | ------------|
+| `bitrate` | _String_ | Path of the recording folder. |
+
+
+**Response Items:**
+
+_No additional response items._
+
+---
+
+### GetBitrate
+
+
+- Added in v4.8.0
+
+Get the path of  the current recording folder.
+
+**Request Fields:**
+
+_No specified parameters._
+
+**Response Items:**
+
+| Name | Type  | Description |
+| ---- | :---: | ------------|
+| `bitrate` | _String_ | Current bitrate setting. |
+
 
 ---
 
