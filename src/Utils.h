@@ -75,6 +75,9 @@ namespace Utils {
 	const char* GetRecordingFolder();
 	bool SetRecordingFolder(const char* path);
 
+	const char* GetBitrate();
+	bool SetBitrate(const char* bitrate);
+
 	QString ParseDataToQueryString(obs_data_t* data);
 	obs_hotkey_t* FindHotkeyByName(QString name);
 
