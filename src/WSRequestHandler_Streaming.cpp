@@ -305,11 +305,13 @@ RpcResponse WSRequestHandler::SetBitrate(const RpcRequest& request) {
 		return request.failed("missing request parameters");
 	}
 
-	const char* bitrate = obs_data_get_string(request.parameters(), "bitrate");
-	bool success = Utils::SetBitrate(bitrate);
-	if (!success) {
-		return request.failed("invalid request parameters");
-	}
+	const int bitrate = obs_data_get_int(request.parameters(), "bitrate");
+	OBSService service = obs_frontend_get_streaming_service();
+	OBSDataAutoRelease newEncoderSettings = obs_data_create();
+	obs_data_set_int(newEncoderSettings, "bitrate", bitrate);
+
+	// Then apply the new bitrate
+	obs_service_apply_encoder_settings(service, newEncoderSettings, nullptr);
 
 	return request.success();
 }

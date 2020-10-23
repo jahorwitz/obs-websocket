@@ -562,16 +562,6 @@ const char* Utils::GetBitrate() {
 	}
 }
 
-bool Utils::SetBitrate(const char* bitrate) {
-	config_t* profile = obs_frontend_get_profile_config();
-
-	config_set_string(profile, "AdvOut", "FFVBitrate", bitrate);
-	config_set_string(profile, "SimpleOutput", "VBitrate", bitrate);
-
-	config_save(profile);
-	return true;
-}
-
 QString Utils::ParseDataToQueryString(obs_data_t* data) {
 	if (!data)
 		return QString();
